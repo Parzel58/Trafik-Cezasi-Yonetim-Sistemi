@@ -1,45 +1,65 @@
-🚦 Trafik Cezası Yönetim Sistemi
-Bu proje, sürücülere kesilen trafik cezalarının yönetimini kolaylaştıran bir Windows Forms uygulamasıdır. Hem polis memurlarının yeni cezaları eklemesini hem de vatandaşların kendi cezalarını sorgulamasını sağlayan pratik bir sistem sunar.
+# 🚦 Trafik Cezası Takip Uygulaması
 
-🎯 Amaç ve Özellikler
-Sistemin temel hedefleri şunlardır:
+Bu Windows Forms tabanlı proje, trafikteki sürücülere kesilen cezaların kayıt altına alınmasını, yönetilmesini ve vatandaşların kendi cezalarını kolayca sorgulamasını amaçlayan kullanıcı dostu bir uygulamadır. Hem trafik polisleri hem de sürücüler için pratik bir çözüm sunar.
 
-✅ Ceza Kaydı: Polis memurları, sürücülere kesilen cezaları hızlı ve kolay bir şekilde sisteme ekleyebilir. 💳 Ödeme Takibi: Cezaların ödeme durumları görüntülenebilir ve takip edilebilir. 🔎 Sorgulama: Vatandaşlar, kimlik veya plaka numarasıyla cezalarını sorgulayabilir. 📊 Raporlama: Genel ceza istatistikleri ve ödeme durumları hakkında bilgi sunar.
+---
 
-🛠️ Kullanılan Teknolojiler
-Bu proje aşağıdaki teknolojilerle geliştirilmiştir:
+## 🎯 Proje Hedefleri
 
-C# – Ana programlama dili.
+Uygulamanın temel işlevleri şunlardır:
 
-Windows Forms (WinForms) – Kullanıcı arayüzü için kullanılan framework.
+- **Ceza Kaydı:** Yeni trafik cezalarının sisteme hızlı bir şekilde eklenmesi.  
+- **Ödeme Durumu İzleme:** Ceza ödemelerinin yapılma durumlarını (ödenmiş / ödenmemiş) takip etme.  
+- **Cezaları Sorgulama:** Vatandaşların plaka numarası veya TC kimlik numarası ile kendi cezalarını görmesi.  
+- **Raporlama:** Genel ceza durumu hakkında özet bilgiler sunan görseller veya listeler.
 
-Nesne Yönelimli Programlama (OOP) – Kodun düzenli ve genişletilebilir olmasını sağlar.
+---
 
-🚀 OOP Yaklaşımı
-Proje, temiz ve modüler bir yapı oluşturmak için temel OOP prensiplerini uygular:
+## 🛠️ Kullanılan Teknolojiler
 
-Kalıtım (Inheritance): Tüm ceza türleri (Hız, Park, Kırmızı Işık) ortak özelliklerini Ceza adlı soyut sınıftan miras alır.
+| Teknoloji | Açıklama |
+|----------|----------|
+| **C#** | Ana yazılım dili |
+| **Windows Forms** | Masaüstü kullanıcı arayüzü |
+| **OOP** | Nesne yönelimli programlama yaklaşımı |
 
-Arayüz (Interface): IOdenecek arayüzü, ödeme ile ilgili ortak davranışları tanımlar.
+---
 
-Soyutlama (Abstraction): Ceza sınıfı, tüm ceza türlerinin ortak özelliklerini belirlerken, her alt sınıf kendine özgü uygulamalar içerir.
+## 🧱 Yazılım Mimarisi ve OOP Prensipleri
 
-Kapsülleme (Encapsulation): Verilere doğrudan erişimi sınırlandırarak güvenli bir yapı oluşturur.
+Uygulama, sürdürülebilir ve anlaşılır bir yapı oluşturmak adına aşağıdaki nesne yönelimli tasarım ilkelerine bağlı kalınarak geliştirildi:
 
-🏗️ Modüller ve İşleyiş
-Uygulamanın temel bileşenleri şunlardır:
+- **Kalıtım (Inheritance):** `Ceza` adlı soyut temel sınıf üzerinden `HizCezasi`, `ParkCezasi`, `KirmiziIsikCezasi` gibi sınıflar türetilir.  
+- **Arayüzler (Interfaces):** `IOdenecek` arayüzü, cezalara ödeme hesaplama davranışı kazandırır.  
+- **Soyutlama (Abstraction):** Ortak olmayan detaylar alt sınıflar tarafından uygulanır.  
+- **Kapsülleme (Encapsulation):** Cezalar, `GlobalData` sınıfında merkezi şekilde saklanır ve doğrudan müdahaleye kapalıdır.
 
-📌 Ana Ekran
-Kullanıcılar, polis paneline veya ceza sorgulama ekranına buradan erişebilir.
+---
 
-👮 Polis Paneli
-Polis memurları, kullanıcı adı: polis ve şifre: 123 ile giriş yaparak ceza ekleme ekranına ulaşabilir.
+## 📋 Uygulama Modülleri
 
-📝 Ceza Ekleme Formu
-Sürücü bilgileri (ad, soyad, plaka, kimlik no) girilerek farklı ceza türleri eklenebilir. Ceza tutarı otomatik hesaplanır ve GlobalData listesine kaydedilir.
+### 🔐 Giriş Ekranı
+- Polis giriş ekranı (Kullanıcı adı: `12345678910`, Şifre: `7894`)  
+- Doğrulama sonrası ceza ekleme ekranına yönlendirme  
 
-🔍 Ceza Sorgulama Formu
-Vatandaşlar, kimlik veya plaka numarasıyla cezalarını sorgulayabilir.
+### 📝 Ceza Ekleme Paneli
+- Sürücü bilgileri (Ad, Soyad, TCKN, Plaka) girişi  
+- Ceza türü seçimi ve otomatik toplam hesaplama  
+- Ceza kaydının global listeye eklenmesi  
 
-🌍 Global Veri Yönetimi
-Tüm cezalar GlobalData sınıfında saklanır ve uygulamanın farklı bölümleri bu verilere erişebilir.# Trafik-Cezasi-Yonetim-Sistemi
+### 🔎 Ceza Sorgulama Paneli *(Geliştirilmeye açık)*  
+- Vatandaşlar, TCKN veya plaka numarası ile kendi ceza kayıtlarını görebilir.  
+- Ödeme durumlarına göre filtreleme planlanmaktadır.  
+
+### 🌐 Global Veri Yönetimi
+- `GlobalData` sınıfı aracılığıyla cezalar tüm uygulama genelinde paylaşılır.  
+
+---
+
+## ⚙️ Kurulum Adımları
+
+1. **Projeyi Klonlayın:**
+
+```bash
+git clone https://github.com/Parzel58/Trafik-Cezasi-Yonetim-Sistemi.git
+istemi
